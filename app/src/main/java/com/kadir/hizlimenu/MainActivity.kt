@@ -1,4 +1,4 @@
-﻿package com.kadir.hizlimenu
+package com.kadir.hizlimenu
 
 import android.content.Context
 import android.content.Intent
@@ -21,15 +21,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val title = TextView(this).apply {
-            text = "Hızlı Menü - Kumanda Tuş Ayarı"
+            text = "Hızlı Menü - Kumanda Tuş Ayarı (v2)"
             textSize = 22f
             setTextColor(Color.WHITE)
         }
         root.addView(title)
 
         val statusText = TextView(this).apply {
-            val savedCode = prefs.getInt("target_scan_code", -1)
-            text = if (savedCode == -1) "Durum: Henüz tuş tanımlanmadı." else "Tanımlı Tuş Kodu (scanCode): $savedCode"
+            val type = prefs.getString("trigger_type", "YOK")
+            text = "Mevcut Tetikleyici: $type"
             textSize = 15f
             setTextColor(Color.parseColor("#4CAF50"))
             setPadding(0, 12, 0, 24)
@@ -37,15 +37,15 @@ class MainActivity : AppCompatActivity() {
         root.addView(statusText)
 
         val recordBtn = Button(this).apply {
-            text = "1. Kumanda Tuşunu Tanımla (Bas ve Bekle)"
+            text = "1. Xiaomi TV+ Tuşunu Dinle ve Kaydet"
             isFocusable = true
             setOnClickListener {
                 KeyInterceptorService.isRecordingMode = true
-                statusText.text = "DİNLENİYOR... Şimdi kumandadaki Xiaomi TV+ tuşuna basın!"
+                statusText.text = "DİNLENİYOR... Şimdi kumandadaki Xiaomi TV+ tuşuna 1 kez basın!"
                 statusText.setTextColor(Color.YELLOW)
-                KeyInterceptorService.onKeyRecorded = { code ->
+                KeyInterceptorService.onSignalDetected = { msg ->
                     runOnUiThread {
-                        statusText.text = "BAŞARILI! Kaydedilen Tuş Kodu: $code"
+                        statusText.text = msg
                         statusText.setTextColor(Color.parseColor("#4CAF50"))
                     }
                 }
