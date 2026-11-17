@@ -6,11 +6,11 @@ android {
     namespace = "com.kadir.hizlimenu"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.mitv.tvhome.atv"
+        applicationId = "com.kadir.hizlimenu"
         minSdk = 26
         targetSdk = 34
-versionCode = 999999999
-versionName = "99.0"
+        versionCode = 2
+        versionName = "2.0"
     }
     buildTypes {
         release {
