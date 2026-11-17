@@ -9,8 +9,8 @@ android {
         applicationId = "com.mitv.tvhome.atv"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+versionCode = 999999999
+versionName = "99.0"
     }
     buildTypes {
         release {
