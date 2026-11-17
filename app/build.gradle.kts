@@ -6,7 +6,7 @@ android {
     namespace = "com.kadir.hizlimenu"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.kadir.hizlimenu"
+        applicationId = "com.xiaomi.tv.plus"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
