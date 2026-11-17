@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-feature android:name="android.software.leanback" android:required="false" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
@@ -11,7 +10,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.kadir.hizlimenu.MainActivity"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -22,22 +21,18 @@
         </activity>
 
         <activity
-            android:name=".LauncherOverlayActivity"
-            android:exported="false"
+            android:name="com.kadir.hizlimenu.LauncherOverlayActivity"
+            android:exported="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
-
-        <service
-            android:name=".KeyInterceptorService"
-            android:exported="true"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:theme="@style/Theme.AppCompat.Dialog.Alert">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mitv" />
+                <data android:scheme="xiaomitv" />
             </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
+        </activity>
     </application>
 </manifest>
