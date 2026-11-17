@@ -1,4 +1,4 @@
-﻿plugins {
+plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
@@ -6,7 +6,7 @@ android {
     namespace = "com.kadir.hizlimenu"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.xiaomi.tv.plus"
+        applicationId = "com.mitv.tvhome.atv"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
